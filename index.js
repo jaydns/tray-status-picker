@@ -1,7 +1,7 @@
 const { Plugin } = require('powercord/entities');
 
 const { ipcRenderer } = require('electron');
-const { getModule } = require('powercord/webpack');
+const { getModule, i18n: { Messages } } = require('powercord/webpack');
 const { inject, uninject } = require('powercord/injector');
 const tray = getModule([ 'setSystemTrayApplications' ], false);
 
@@ -13,19 +13,19 @@ module.exports = class TrayStatusPicker extends (
 
     const customTrayMenus = [
       {
-        name: 'Online',
+        name: Messages.STATUS_ONLINE,
         id: 'status_online'
       },
       {
-        name: 'Idle',
+        name: Messages.STATUS_IDLE,
         id: 'status_idle'
       },
       {
-        name: 'Do not Disturb',
+        name: Messages.STATUS_DND,
         id: 'status_dnd'
       },
       {
-        name: 'Invisible',
+        name: Messages.STATUS_OFFLINE,
         id: 'status_invisible'
       }
     ];
